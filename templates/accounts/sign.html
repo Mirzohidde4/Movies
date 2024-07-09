@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Akkaunt ochish {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'sign.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>ro'yhatdan o'tish</h2>
+    <form method="POST" class="signup">
+    {% csrf_token %}
+    <div class="field">
+      <label for="firstname">firstname</label>
+      <input type="text" name="firstname" placeholder="firstname" id="firstname" required>
+    </div>
+    <div class="field">
+      <label for="lastname">lastname</label>
+      <input type="text" name="lastname" placeholder="lastname" id="lastname" required>
+    </div>
+    <div class="field">
+      <label for="username">username</label>
+      <input type="text" name="username" placeholder="username" id="username" required>
+      <br><span style="color: rgb(158, 25, 25); font-weight: 500;">{{ name }}</span>
+    </div>
+    <div class="field">
+      <label style="margin-left: 33px;" for="email">email</label>
+      <input type="email" name="email" placeholder="email" id="email" required>
+      <br><span style="color: rgb(158, 25, 25); font-weight: 500;">{{ pochta }}</span>
+      </div>
+      <div class="field">
+        <label for="password1">password</label>
+        <input type="password" name="password1" placeholder="password" id="password1" required>
+      </div>
+      <div class="field">
+        <label for="password2">password</label>
+        <input type="password" name="password2" placeholder="confirm password" id="password2" required>
+        <br><span style="color: rgb(158, 25, 25); font-weight: 500;">{{ hato }}</span>
+      </div>
+      <div class="field btn">
+        <div class="btn-layer"></div>
+        <input class="knopka" type="submit" name="signup" value="Yuborish">
+        <div class="signup-link">Akkauntingiz bormi? <a href="{% url 'login' %}">Kirish</a></div>
+      </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Batafsil ma'lumot {% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'detail.css' %}">
+<style>
+    .container{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .left{
+
+        a{
+            text-decoration: none;
+            color: saddlebrown;
+            font-weight: 500;
+        }
+
+        a:hover{
+            color: saddlebrown;
+            text-decoration: underline;
+        }
+
+        .body{
+            margin-top: 15px;
+        }
+
+        h5{
+            max-width: 500px;
+            margin-top: 5px;   
+        }
+
+        h6{
+            margin-top: 20px;
+        }
+
+        video{
+            max-width: 800px;
+            margin-top: 10px;
+        }
+    
+    }
+
+    .right{
+        margin-top: 10px;
+
+        .comments{
+            border: 2px solid black;
+            border-radius: 3px;
+            height: 500px;
+            width: 500px;
+
+            h2{
+                text-align: center;
+                color: saddlebrown;
+            }
+
+            p{
+                margin-left: 10px;
+                /* max-width: 500px; */
+            }
+        }
+        
+        .commment-form{
+            margin-top: 20px;
+            text-align: center; 
+
+            textarea{
+                width: 500px;
+                height: 70px;
+                padding: 5px 10px;
+                /* border : 3px; */
+            }
+
+            h2{
+                color: saddlebrown;
+            }
+
+            button{
+                width: 500px;
+                padding: 10px 20px;
+                border-radius: 3px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-weight: 500;
+                font-size: larger;
+                background-color: rgb(167, 90, 35);
+                border: 1px solid saddlebrown;
+                color: white;
+            }
+
+            button:hover{
+                background-color: saddlebrown;
+                color: white;
+            }
+        }
+
+        .user{
+            margin-top: 20px;
+        }
+
+        p{
+            margin: 2px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="left">
+        <video width="640px" height="360px" controls>
+            <source src="{{ post.video.url }}" type="video/mp4">
+        </video>
+        <h2><strong>{{ post.title }}</strong></h2>
+        <h5 style="color: gray;">📆 Chiqarilgan sana: {{ post.date.date }} <br>🔐 Kino qodi : {{ post.id }}</h5>
+        <h5 class="body">{{ post.body }}</h5>
+        {% if request.user.is_superuser %}
+            <a href="{% url 'post_delete' post.id %}">✖️ O'chirish</a> |
+            <a href="{% url 'posts' %}">🔝 Barcha kinolar</a>
+        {% else %} 
+            <h6>❗️ Kinoni yuklab olish uchun telegram botimizga start tugmasini bosib kino qodini yuboring.</h6>
+            {% if request.user.is_authenticated %}
+                <a href="https://t.me/my1sttgrambot">⬇️ Telegramdan yuklash</a> |
+                <a href="https://t.me/xudoybergan0v">📞 Admin bilan bog'lanish</a> |
+            {% else %}
+                <a href="{% url 'login' %}">⬇️ Telegramdan yuklash</a> |
+                <a href="{% url 'login' %}">📞 Admin bilan bog'lanish</a> |
+            {% endif %}
+            <a href="{% url 'posts' %}">🔝 Barcha kinolar</a>
+        {% endif %}
+
+    </div>
+    <div class="right">
+        <div class="comments">
+            <h2>Kamentariyalar</h2>
+            {% for comment in komentariya %}
+            <div class="comment">
+                <p class="user"><strong>{{ comment.user }}</strong>:</p>
+                <p>{{ comment.comment }}</p>
+                <p style="color: gray;">{{ comment.created }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="commment-form">
+            <!-- <h2>kamentariya qoldirish</h2> -->
+            <form action="" method="POST">
+                {% csrf_token %}
+                <textarea name="comment" placeholder="o'z fikringizni bildiring . . ." id=""></textarea><br>
+                <button type="submit">Yuborish</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+

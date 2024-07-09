@@ -1,0 +1,81 @@
+.container{
+    margin: 20px 90px;
+    background-color: rgb(231, 229, 229);
+    text-align: center;
+    border-radius: 6px;
+
+    a{
+        color: saddlebrown;
+        text-decoration: none;
+        word-spacing: 2px;
+        margin-left: 8px;
+    }
+
+    a:hover{
+        text-decoration: underline;
+        color: saddlebrown;
+    }
+
+    h2{
+        color: saddlebrown;
+        text-transform: uppercase;
+        text-shadow: 1px 3px 5px black;
+    }
+
+    .login{
+        margin: 30px;
+    }
+
+    .pass{
+        text-decoration: none;
+        color: red;
+    }
+
+    .field{
+        margin: 15px;
+
+        label{
+            margin-right: 10px;
+            letter-spacing: 1px;
+            color: rgb(128, 62, 15);
+            text-shadow: 1px 5px 10px black;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        input{
+            width: 300px;
+            margin-left: 5px;
+            padding: 2px 20px;
+            letter-spacing: 0.5px;
+            border: 20px ;
+            border-radius: 2px;
+        }
+
+        
+        .knopka{
+            /* margin-top: 10px; */
+            margin-bottom: 20px;
+            padding: 5px 10px;
+            text-transform: capitalize;
+            word-spacing: 2px;
+            background-color: rgb(168, 103, 56);
+            border-radius: 3px;
+        }
+
+        .knopka:hover{
+            background-color: saddlebrown;
+        }
+    }
+}
+
+.hato{
+    color: rgb(179, 17, 17);
+    font-weight: 500;
+}
+
+span{
+    color: rgb(179, 17, 17);
+    font-weight: 500;
+}
+

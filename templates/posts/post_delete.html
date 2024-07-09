@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Postni o'chirish {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'sign.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h2 >O'chirish</h2>
+    <form method="POST" class="login">
+      {% csrf_token %}
+      <div class="field">
+        <p>"{{ object.title }}" nomli postni o'chirmoqchimisiz?</p>
+      </div>
+      <div class="field btn">
+        <div class="btn-layer"></div>
+        <input class="knopka" type="submit" name="javob" value="Ha">
+    </form>
+</div>
+{% endblock %}

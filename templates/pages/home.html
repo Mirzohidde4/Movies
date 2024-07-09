@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Onlayn kinoteatr {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+<style>
+    .container{
+        margin: 20px;
+    }
+    .container p a{
+        background-color: rgb(167, 90, 35);
+        border: 1px solid saddlebrown;
+        color: white;
+    }
+
+    .container p a:hover{
+        background-color: saddlebrown;
+        color: white;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="display-4">Assalomu alaykum!</h1>
+    <p class="lead">Yangi kinolar saytiga xush kelibsiz</p>
+    <hr class="my-4">
+    <p>Bu yerda siz eng so'ngi kinolarni online tomosha qilishingiz va yuklab olishingiz mumkin</p>
+    <p class="lead">
+        <a class="btn" href="{% url 'posts' %}" role="button">Kinolarni ko'rish</a>
+    </p>
+</div>
+{% endblock %}

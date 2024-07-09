@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Batafsil ma'lumot {% endblock %}
+
+{% block css %}
+<style>
+    .container{
+        /* display: flex;
+        justify-content: center; */
+        text-align: center;
+        margin: 20px;
+
+        h2{
+            margin-bottom: 20px;
+            color: rgb(41, 37, 37);
+        }
+
+        button{
+            color: saddlebrown;
+            background-color: white;
+            border: none;
+            /* padding: 2px 10px; */
+            font-size: larger;
+            font-weight: 500;
+        }
+
+        .tekshir{
+            margin-top: 6px;
+            background-color: rgb(167, 90, 35);
+            border: 1px solid saddlebrown;
+            color: white;
+            border-radius: 3px;
+            padding: 3px 30px;
+        }
+
+        .tekshir:hover{
+            background-color: saddlebrown;
+            color: white;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="POST" novalidate>
+        <h2>Rasmda nimani ko'ryabsiz</h2>
+        {%csrf_token%}
+        {{form.captcha_field}}
+        <button class='js-captcha-refresh' ><i class="las la-sync-alt"></i></button><br>
+        <input class="tekshir" type="submit" value="Tekshirish">
+     </form>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+}
+
+.card h1 a {
+    color: black;
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    font-size: 28px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.card h1 a:hover {
+    opacity: 0.7;
+    color: saddlebrown;
+    text-decoration: underline;
+}
+
+.price {
+    color: grey;
+    font-size: 22px;
+}
+
+

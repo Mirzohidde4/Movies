@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Barcha kinolar {% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'posts.css' %}">
+<style>
+  .container{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .card {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+
+  #pagination{
+    margin-top: 40px;
+  }
+
+.card h1 a {
+    color: black;
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    font-size: 28px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.card h1 a:hover {
+    opacity: 0.7;
+    color: saddlebrown;
+    text-decoration: underline;
+}
+
+.price {
+    color: grey;
+    font-size: 22px;
+}
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+{% for post in page_obj %}
+<div class="card">
+  <img src="{{ post.photo.url }}" alt="{{ post.title }}" style="width:100%">
+  <h1><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h1>
+  <p class="price">{{ post.description }}...</p>
+  <p>{{ post.date.date }}</p>
+</div>
+{% endfor %}
+<br><br>
+</div>
+<div class="container" id="pagination">
+  {% include 'pagination.html' with page=page_obj %}
+</div>
+{% endblock %}
+
+
+<!-- <div class="container">
+  <div class="card" style="width: 13rem;">
+    {% for post in paginator %}
+    <img src="{{ post.photo.url }}" class="card-img-top" alt="{{ post.title }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text"> {{ post.description }}...</p>
+      <span class="text-muted">{{ post.author | title }}<br>{{ post.date.date }}</span>
+      <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary">batafsil ma'lumot</a>
+    </div>
+    {% endfor %}
+    <br>
+  </div> -->

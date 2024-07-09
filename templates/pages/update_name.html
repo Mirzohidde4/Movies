@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Foydalanuvchi ismni o'zgartirish {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'sign.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h2 >Ismni o'zgartirish</h2>
+    <form method="POST" class="login">
+      {% csrf_token %}
+      <div class="field">
+        <label for="username">Foydalanuvchi ism</label>
+        <input type="text" name="username" placeholder="yangi ismni kiriting..." id="username" required>
+      </div>
+      <!-- <div class="field">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="password..." required>
+        <br>{{ hato }}
+      </div> -->
+      <div class="field btn">
+        <div class="btn-layer"></div>
+        <input class="knopka" type="submit" name="login" value="yangilash">
+    </form>
+</div>
+{% endblock %}

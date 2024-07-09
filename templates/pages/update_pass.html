@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Parolni o'zgartirish {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'sign.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h2 >Parolni yangilash</h2>
+    <form method="POST" class="login">
+      {% csrf_token %}
+      <div class="field">
+        <label for="old">Eski parol</label>
+        <input type="text" name="oldpassword" placeholder="eski parol..." id="old" required>
+      </div>
+      <div class="field">
+        <label for="newpassword">Yangi parol</label>
+        <input type="password" name="newpassword" id="newpassword" placeholder="yangi parol..." required>
+      </div>
+      <div class="field">
+        <label for="newpassword1">Yangi parol</label>
+        <input type="password" name="newpassword" id="newpassword1" placeholder="qaytadan yangi parol..." required>
+      </div>
+      <div class="field btn">
+        <div class="btn-layer"></div>
+        <input class="knopka" type="submit" name="login" value="Update">
+      <div class="signup-link"><a href="{% url 'sign' %}">Parol esdan chiqdimi?</a></div>
+    </form>
+</div>
+{% endblock %}

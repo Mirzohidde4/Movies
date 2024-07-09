@@ -1,0 +1,26 @@
+.account{
+    text-decoration: none;
+    color: rgb(190, 190, 190);
+    font-weight: 450;
+    font-size: medium;
+}
+
+.account:hover{
+    color: rgb(221, 209, 209);
+}
+
+.kontact{
+    color: rgb(190, 190, 190);
+}
+
+nav div div ul form button{
+    background-color: rgb(41, 37, 37);
+    color: rgb(158, 75, 15);
+    border: 1px solid saddlebrown;
+    border-radius: 5px;
+  }
+
+  nav div div ul form button:hover{
+    color: white;
+    background-color: saddlebrown;
+  }

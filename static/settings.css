@@ -1,0 +1,46 @@
+.container{
+    margin: 20px 70px;
+}
+
+h2{
+    text-align: center;
+    color: saddlebrown;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    text-shadow: 1px 3px 7px rgb(53, 50, 50);
+}
+
+.update{
+    color: white;
+    text-decoration: none;
+    background-color: white;
+    padding: 5px 20px;
+    border: 1px solid saddlebrown;
+    border-radius: 5px;
+}
+
+.update:hover{
+    background-color: saddlebrown;
+    color: white;
+}
+
+/* .header{
+    color: darkgray;
+} */
+
+table {
+    margin-top: 30px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }

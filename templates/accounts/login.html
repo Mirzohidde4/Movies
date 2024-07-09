@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Hisobga kirish {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'sign.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h2 >kirish</h2>
+    <form method="POST" class="login">
+      {% csrf_token %}
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="username..." id="username" required>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="password..." required>
+        <br><p style="color: rgb(170, 24, 24); font-weight: 500;" class="hato">{{ hato }}</p>
+      </div>
+      <div style="color: red;" class="signup-link"><a href="{% url 'sign' %}">parol esdan chiqtimi?</a></div>
+      <div class="field btn">
+        <div class="btn-layer"></div>
+        <input class="knopka" type="submit" name="login" value="kirish">
+      <div class="signup-link">Akkauntingiz yo'qmi? <a href="{% url 'sign' %}">Ochish</a></div>
+    </form>
+</div>
+{% endblock %}

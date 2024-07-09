@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Sozlamalar {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'settings.css' %}">
+<style>
+  .container .table tr a{
+    color: black;
+    text-decoration: none;  
+  }
+  .container .table tr a:hover{
+    text-decoration: underline;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 >Sozlamalar</h2>
+    <table class="table">
+        <!-- <thead>
+          <tr>
+            <th class="header" scope="col">Key</th>
+            <th class="header" scope="col">Value</th>
+          </tr>
+        </thead> -->
+        <tbody>
+          <tr>
+            <th scope="row">foydalanuvchi ism :</th>
+            <td><a href="{% url 'update_name' %}">{{ request.user }}</a></td>
+          </tr>
+          <tr>
+            <th scope="row">ism :</th>
+            <td>{{ request.user.first_name }}</td>
+          </tr>
+          <tr>
+            <th scope="row">familiya :</th>
+            <td>{{ request.user.last_name }}</td>
+          </tr>
+          <tr>
+            <th scope="row">email :</th>
+            <td>{{ request.user.email }}</td>
+            <!-- <td><a class="update" href="#">update</a></td> -->
+          </tr>
+          <tr>
+            <th scope="row">hisob ochilgan sana :</th>
+            <td>{{ request.user.date_joined }}</td>
+            <!-- <td><a class="update" href="#">update</a></td> -->
+          </tr>
+          <tr>
+            <th scope="row">parol :</th>
+            <td><a href="{% url 'update_pass' %}">{{ parol }}</a></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+{% endblock %}

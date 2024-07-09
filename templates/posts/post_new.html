@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Yangi post qo'shish {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'sign.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 >Post qo'shish</h2>
+    {% if request.user.is_authenticated %}
+    <form method="POST" enctype="multipart/form-data" class="login">
+      {% csrf_token %}
+      <div class="field">
+        <label for="title">title</label>
+        <input type="text" name="title" placeholder="title..." id="title" required>
+      </div>
+      <div class="field">
+        <label for="title">category</label>
+        <input type="text" name="category" placeholder="category..." id="category" required>
+      </div>
+      <div class="field">
+        <label for="description">description</label>
+        <input type="text" name="description" id="description" placeholder="description..." required>
+      </div>
+      <div class="field">
+        <label for="body">body</label>
+        <input type="text" name="body" id="body" placeholder="body..." required>
+      </div>
+      <div class="field">
+        <label for="photo">photo</label>
+        <input type="file" name="photo" id="photo" placeholder="photo" required>
+      </div>
+      <div class="field btn">
+        <div class="btn-layer"></div>
+        <input class="knopka" type="submit" name="saqlash" value="Saqlash">
+    </form>
+    {% endif %}
+</div>
+{% endblock %}
