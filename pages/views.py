@@ -33,5 +33,15 @@ def UpdateName(request):
 
 
 def UpdatePassword(request):
+    # if request.method == "POST":
+    #     password1 = request.POST.get('newpassword1')
+    #     password2 = request.POST.get('newpassword2')
+    #     if password1 == password2:
+    #         user = User.objects.filter(username=request.user)
+    #         user.update(password=password1)
+    #         return redirect('user_setting')
+    #     else:
+    #         hato = 'password\'s doesn\'t exists'
+    #         return render(request, 'pages/update_pass.html', {'hato': hato})
     return render(request, 'pages/update_pass.html')
 

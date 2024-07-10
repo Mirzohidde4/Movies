@@ -48,10 +48,17 @@
             <td>{{ request.user.date_joined }}</td>
             <!-- <td><a class="update" href="#">update</a></td> -->
           </tr>
+          <!-- {% if request.user.is_superuser %}
           <tr>
             <th scope="row">parol :</th>
             <td><a href="{% url 'update_pass' %}">{{ parol }}</a></td>
           </tr>
+          {% endif %}
+          <tr>
+            <th scope="row">parol :</th>
+            <td><a href="{% url 'reset-password' %}">{{ parol }}</a></td>
+          </tr> -->
+          
         </tbody>
       </table>
 </div>
